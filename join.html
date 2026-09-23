@@ -53,7 +53,7 @@
   <div class="mark">RAM<b>ix</b></div>
   <div class="sub">صديقك ينتظرك في غرفة لعب</div>
 
-  <div class="code-box">
+  <div class="code-box" id="codeBox" style="cursor:pointer">
     <div class="code-label">رمز الغرفة</div>
     <div class="code" id="code">------</div>
   </div>
@@ -67,7 +67,7 @@
     <b>ما عندك اللعبة؟</b><br>
     ١. حمّلها من آب ستور (مجانية).<br>
     ٢. افتحها واختر «لعب جماعي».<br>
-    ٣. الصق رمز الغرفة — نسخناه لك تلقائياً.
+    ٣. الصق رمز الغرفة — يُنسخ لك لما تضغط «حمّل».
   </div>
 
   <div class="en" id="en">
@@ -84,14 +84,20 @@
       document.getElementById('code').textContent = code;
       var deepLink = 'ramix://join?code=' + encodeURIComponent(code);
       document.getElementById('openApp').href = deepLink;
-      // Carry the code past the App Store detour: the app's Join screen has a
-      // paste button, so a clipboard copy is what survives the install.
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(code).then(function () {
+      // Carry the code past the App Store detour. Safari only allows a
+      // clipboard write inside a tap, so copy when the player taps the code
+      // or the download button — the app's join field has a paste button.
+      function copyCode() {
+        if (!navigator.clipboard) return Promise.resolve();
+        return navigator.clipboard.writeText(code).then(function () {
           document.getElementById('copied').textContent = 'تم نسخ الرمز ✓';
         }).catch(function () {});
       }
-      document.getElementById('store').href = STORE;
+      document.getElementById('codeBox').addEventListener('click', copyCode);
+      document.getElementById('store').addEventListener('click', function (e) {
+        e.preventDefault();
+        copyCode().then(function () { location.href = STORE; });
+      });
       // Try the app first; if nothing takes over, the page simply stays put.
       setTimeout(function () { location.href = deepLink; }, 250);
     } else {
