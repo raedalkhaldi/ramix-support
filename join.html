@@ -87,11 +87,28 @@
       // Carry the code past the App Store detour. Safari only allows a
       // clipboard write inside a tap, so copy when the player taps the code
       // or the download button — the app's join field has a paste button.
+      function copied() {
+        document.getElementById('copied').textContent = 'تم نسخ الرمز ✓';
+      }
+      // Older Safari and in-app browsers (WhatsApp, Instagram) often reject
+      // the async clipboard API, so fall back to a selected textarea.
+      function legacyCopy() {
+        var t = document.createElement('textarea');
+        t.value = code;
+        t.setAttribute('readonly', '');
+        t.style.position = 'fixed';
+        t.style.opacity = '0';
+        document.body.appendChild(t);
+        t.select();
+        t.setSelectionRange(0, code.length);
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(t);
+        if (ok) copied();
+      }
       function copyCode() {
-        if (!navigator.clipboard) return Promise.resolve();
-        return navigator.clipboard.writeText(code).then(function () {
-          document.getElementById('copied').textContent = 'تم نسخ الرمز ✓';
-        }).catch(function () {});
+        if (!navigator.clipboard) { legacyCopy(); return Promise.resolve(); }
+        return navigator.clipboard.writeText(code).then(copied, legacyCopy);
       }
       document.getElementById('codeBox').addEventListener('click', copyCode);
       document.getElementById('store').addEventListener('click', function (e) {
