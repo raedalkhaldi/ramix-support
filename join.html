@@ -65,20 +65,29 @@
 
   <div class="steps" id="steps">
     <b>ما عندك اللعبة؟</b><br>
-    ١. حمّلها من آب ستور (مجانية).<br>
-    ٢. افتحها واختر «لعب جماعي».<br>
-    ٣. الصق رمز الغرفة — يُنسخ لك لما تضغط «حمّل».
+    ١. اضغط «حمّل RAMix مجاناً».<br>
+    ٢. أول ما تفتح اللعبة تدخل الغرفة لحالها.<br>
+    ٣. ما دخلت؟ اختر «لعب جماعي» والصق الرمز — يُنسخ لك لما تضغط «حمّل».
   </div>
 
   <div class="en" id="en">
     Your friend is waiting in a RAMix room.<br>
-    Tap “Open” if you have the app, or download it and paste the room code.
+    Tap “Open” if you have the app. Otherwise download it — opening RAMix the first time takes you into the room (or paste the code).
   </div>
 
   <script>
     var code = (new URLSearchParams(location.search).get('code') || '')
                  .toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 6);
     var STORE = 'https://apps.apple.com/app/id6760188345';
+    // AppsFlyer OneLink (template uVmP): sends the friend to the App Store and
+    // hands the room code to the app on its first launch (deferred deep link),
+    // so they land in the room without typing anything. pid=room_invite also
+    // counts these installs as their own source in AppsFlyer.
+    function inviteLink(c) {
+      return 'https://ramix.onelink.me/uVmP?pid=room_invite&c=room_invite' +
+        '&deep_link_value=' + encodeURIComponent(c) +
+        '&af_dp=' + encodeURIComponent('ramix://join?code=' + c);
+    }
 
     if (code) {
       document.getElementById('code').textContent = code;
@@ -113,7 +122,7 @@
       document.getElementById('codeBox').addEventListener('click', copyCode);
       document.getElementById('store').addEventListener('click', function (e) {
         e.preventDefault();
-        copyCode().then(function () { location.href = STORE; });
+        copyCode().then(function () { location.href = inviteLink(code); });
       });
       // Try the app first; if nothing takes over, the page simply stays put.
       setTimeout(function () { location.href = deepLink; }, 250);
