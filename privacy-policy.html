@@ -21,17 +21,21 @@
 </head>
 <body>
   <h1>RAMix Privacy Policy</h1>
-  <p class="updated">Last updated: September 29, 2026</p>
+  <p class="updated">Last updated: October 18, 2026</p>
 
   <h2>Overview</h2>
   <p>RAMix is a puzzle game developed by Raed Alkhaldi. Your privacy is important to us. This policy explains what data we collect, how we use it, and your rights.</p>
 
   <h2>Data We Collect</h2>
   <p><strong>Authentication data:</strong> If you sign in with Apple or X (Twitter), we store your user ID, display name, and profile photo URL to identify you in multiplayer games. If you play as a guest, we use anonymous Firebase authentication with no personal data.</p>
-  <p><strong>Game data:</strong> We store multiplayer room data (room codes, game progress, move counts, and solve times) to enable real-time multiplayer gameplay. This data is temporary and tied to individual game sessions.</p>
+  <p><strong>Game data:</strong> We store multiplayer room data (room codes, game progress, move counts, and solve times) to enable real-time multiplayer gameplay. This data is temporary and tied to individual game sessions. Your results in daily challenges, races and challenges against other players &mdash; including a record of your moves, which other players may race against &mdash; are shown to other players with your username. We also count the days you open the app and your current level, so we can see how the game is played.</p>
   <p><strong>Username:</strong> If you sign in with Apple, you choose a username that is stored in our database and visible to other players in multiplayer rooms.</p>
   <p><strong>Advertising attribution data:</strong> We use AppsFlyer to learn which of our ads led you to install RAMix. See <a href="#attribution">Advertising Attribution</a> below.</p>
   <p><strong>Tournament results:</strong> If you enter a tournament, we store your username, your solve times, the number of moves, and a record of the moves (used to verify that a winning solve is genuine). Your username and time appear on that tournament's public leaderboard.</p>
+  <p><strong>Coins and ratings:</strong> Your coin balance, what you earned coins for and what you spent them on, and your rating in each game, so they stay with your account. Your rating and tier are shown to other players next to your username.</p>
+  <p><strong>Coin purchases:</strong> If you buy coins, the payment is handled entirely by Apple; we never see your payment details. Apple sends us a signed record of the purchase (the product, its price and currency, the store country and a transaction number) so we can add the coins, and tells us if a purchase is refunded.</p>
+  <p><strong>Rewarded ads:</strong> Only when you choose to watch an ad for coins. See <a href="#ads">Rewarded Ads</a> below.</p>
+  <p><strong>Profile photo:</strong> Only if you choose to put one up. See <a href="#photo">Profile Photo</a> below.</p>
   <p><strong>Notification token:</strong> Only if you allow notifications, we store a token that lets us send notifications to your device, together with your app language, your current level and when you last opened the app. See <a href="#notifications">Notifications</a> below.</p>
   <p><strong>Prize contact details:</strong> Only if you win a tournament and choose to claim the prize, we collect your full name, mobile number and, optionally, your email address. See <a href="#prizes">Tournament Prizes</a> below.</p>
 
@@ -39,13 +43,14 @@
   <ul>
     <li>We do not collect your email address or phone number, except when you choose to provide them to claim a tournament prize</li>
     <li>We do not collect your physical address</li>
-    <li>We do not collect location data</li>
+    <li>We do not collect location data (the ad services below receive your IP address, which can indicate your general area)</li>
     <li>We do not sell your data</li>
   </ul>
 
   <h2>Third-Party Services</h2>
   <p>We use <strong>Google Firebase</strong> for authentication, real-time database and notification services. Firebase processes data according to <a href="https://firebase.google.com/support/privacy">Google's Privacy Policy</a>.</p>
   <p>If you sign in with Apple or X (Twitter), those providers handle the authentication flow according to their own privacy policies.</p>
+  <p>Coin purchases are processed by <strong>Apple</strong> through the App Store. Rewarded ads come from <strong>Google AdMob</strong>, and profile photos are checked by <strong>Google Cloud Vision</strong> (see below).</p>
 
   <h2 id="attribution">Advertising Attribution (AppsFlyer)</h2>
   <p>We use <strong>AppsFlyer</strong> to measure the performance of our ads, for example on TikTok.</p>
@@ -56,6 +61,23 @@
     <li>This data is shared with the ad network that showed you the ad, only to report that ad's results. We do not sell your data.</li>
   </ul>
   <p>You can change your choice at any time in <strong>Settings &rarr; Privacy &amp; Security &rarr; Tracking</strong>. AppsFlyer processes this data under its own <a href="https://www.appsflyer.com/legal/privacy-policy/">Privacy Policy</a>.</p>
+
+  <h2 id="ads">Rewarded Ads (Google AdMob)</h2>
+  <p>RAMix shows an ad only when you tap to watch one in exchange for coins; there are no ads in between games. Those ads come from <a href="https://admob.google.com">Google AdMob</a>.</p>
+  <ul>
+    <li>When you watch one, Google receives technical data such as device model, iOS version and IP address, and your advertising identifier (IDFA) only if you allowed tracking when iOS asked. Google may use it to choose the ad and to measure it.</li>
+    <li>To pay the coins, the ad carries your RAMix user ID back to our server, which confirms with Google that the ad was watched.</li>
+  </ul>
+  <p>Google processes this data under its own <a href="https://policies.google.com/privacy">Privacy Policy</a>. You can change your tracking choice at any time in <strong>Settings &rarr; Privacy &amp; Security &rarr; Tracking</strong>.</p>
+
+  <h2 id="photo">Profile Photo</h2>
+  <p>You can choose to put up a profile photo, which other players see next to your name in matches, challenges and leaderboards.</p>
+  <ul>
+    <li><strong>Checked first:</strong> before it is saved, the photo is checked automatically by <a href="https://cloud.google.com/vision">Google Cloud Vision</a> for adult or violent content; Google does not keep it. A photo that fails the check is not saved.</li>
+    <li><strong>Who sees it:</strong> the photo is stored, made small, with your account in Google Firebase, and only signed-in RAMix players can see it.</li>
+    <li><strong>Reports:</strong> other players can report a photo; a reported photo may be hidden and reviewed by us, and removed if it breaks the rules. Players can also hide anyone's photo on their own phone.</li>
+    <li><strong>Deleting it:</strong> at any time from the same screen; it is also deleted with your account.</li>
+  </ul>
 
   <h2 id="prizes">Tournament Prizes</h2>
   <p>When you win a tournament, the app asks whether you want to claim the prize. If you do, you enter your full name, mobile number and, optionally, your email address, and you must explicitly agree before they are sent.</p>
@@ -74,13 +96,13 @@
   </ul>
 
   <h2>Data Retention</h2>
-  <p>Multiplayer game room data is temporary and may be deleted after games conclude. User profile data (username, avatar URL) is retained as long as your account exists. Notification tokens are kept while notifications are allowed and your account exists. Prize contact details are deleted within 90 days after the tournament ends. Tournament results stay on that tournament's leaderboard; contact us to have yours removed.</p>
+  <p>Multiplayer game room data is temporary and may be deleted after games conclude. User profile data (username, avatar URL) is retained as long as your account exists. Coins, ratings and your profile photo are kept as long as your account exists; records of coin purchases are kept for accounting and refunds. Notification tokens are kept while notifications are allowed and your account exists. Prize contact details are deleted within 90 days after the tournament ends. Tournament results stay on that tournament's leaderboard; contact us to have yours removed.</p>
 
   <h2>Data Deletion</h2>
-  <p>You can delete your account from within the app, which removes your profile, your notification token and any prize contact details you submitted, or contact us at the email below to delete any other data. Guest accounts store no personal data beyond a notification token, if you allowed notifications. To delete advertising attribution data, contact us and we will forward the request to AppsFlyer.</p>
+  <p>You can delete your account from within the app, which removes your profile, your coins, your ratings, your profile photo, your notification token and any prize contact details you submitted, or contact us at the email below to delete any other data. Guest accounts store no personal data beyond a notification token, if you allowed notifications. To delete advertising attribution data, contact us and we will forward the request to AppsFlyer.</p>
 
   <h2>Children's Privacy</h2>
-  <p>RAMix does not knowingly collect personal information from children under 13. The app is rated 4+ and does not contain objectionable content.</p>
+  <p>RAMix does not knowingly collect personal information from children under 13. The app is rated 4+ and does not contain objectionable content; profile photos are checked automatically and can be reported.</p>
 
   <h2>Changes to This Policy</h2>
   <p>We may update this policy from time to time. Changes will be posted on this page with an updated date.</p>
